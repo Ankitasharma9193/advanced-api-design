@@ -32,7 +32,10 @@ const createUser = async(req, res) => {
         
         // Do not return password
         const { password: _, ...userData } = newUser.toObject();
-        res.status(201).json(userData);
+        res.status(200).json({
+           message: 'users created successfully....',
+           status: 'success'
+        });
 
     } catch(error){
         console.error(error);
@@ -40,8 +43,22 @@ const createUser = async(req, res) => {
     }
 }
 
-const getUsers = (req, res) => {
-  res.status(200).json({ message: 'User retrieved successfully' });
+const getUsers = async (req, res) => {
+    try{
+        const users = await User.find().select('-password'); // Exclude passwords
+        res.status(200).json({
+           message: 'users retrieved successfully....',
+           status: 'success',
+           result: users
+        });
+
+    } catch(error){
+        console.error(error);
+        res.status(500).json({ 
+          message: 'Server error',
+          status: 'failed',
+        });
+    }
 }
 
 const getUserById = (req, res) => {
