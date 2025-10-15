@@ -1,0 +1,36 @@
+src/
+├── config/
+│   ├── db.js
+│   └── redis.js
+├── controllers/
+│   ├── userController.js
+│   ├── productController.js
+│   ├── orderController.js
+│   └── paymentController.js
+├── models/
+│   ├── userModel.js
+│   ├── productModel.js
+│   ├── orderModel.js
+│   └── paymentModel.js
+├── routes/
+│   ├── userRoutes.js
+│   ├── productRoutes.js
+│   ├── orderRoutes.js
+│   └── paymentRoutes.js
+├── middlewares/
+│   ├── authMiddleware.js
+│   ├── rateLimitMiddleware.js
+│   ├── errorMiddleware.js
+│   └── validateMiddleware.js
+├── utils/
+│   ├── logger.js
+│   ├── responseFormatter.js
+│   └── idempotency.js
+├── jobs/
+│   ├── orderQueue.js
+│   └── worker.js
+├── services/
+│   ├── paymentService.js
+│   └── notificationService.js
+├── app.js
+└── server.js
